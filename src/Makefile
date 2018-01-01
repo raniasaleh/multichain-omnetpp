@@ -1,12 +1,12 @@
 #
-# OMNeT++/OMNEST Makefile for test1
+# OMNeT++/OMNEST Makefile for multichain-omnetpp
 #
 # This file was generated with the command:
-#  opp_makemake -f -ldb_cxx -ldb -lanl -lsecp256k1 -lleveldb -lbitcoinconsensus -lmemenv -lboost_program_options -lboost_filesystem -lbitcoin_crypto -lbitcoin_common -lbitcoin_multichain -lbitcoin_cli -lbitcoin_util -lbitcoin_wallet -lbitcoin_server -lssl -lcrypto -lboost_thread -lbitcoin_univalue -lboost_system -lpthread -lmultichain -- -levent -lssl -lpthread
+#  opp_makemake -f -L/home/ran/git/multichain/src/multichain -L/home/ran/git/multichain/out/$$\(CONFIGNAME\) -ldb_cxx -ldb -lanl -lsecp256k1 -lleveldb -lbitcoinconsensus -lmemenv -lboost_program_options -lboost_filesystem -lbitcoin_crypto -lbitcoin_common -lbitcoin_multichain -lbitcoin_cli -lbitcoin_util -lbitcoin_wallet -lbitcoin_server -lssl -lcrypto -lboost_thread -lbitcoin_univalue -lboost_system -lpthread -lmultichaindepd -lmultichain -lmultichain -KMULTICHAIN_PROJ=/home/ran/git/multichain
 #
 
 # Name of target to be created (-o option)
-TARGET = test1$(EXE_SUFFIX)
+TARGET = multichain-omnetpp$(EXE_SUFFIX)
 
 # User interface (uncomment one) (-u option)
 USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(CMDENV_LIBS)
@@ -17,10 +17,11 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(CMDENV_LIBS)
 INCLUDE_PATH = -I.
 
 # Additional object and library files to link with
-EXTRA_OBJS = -levent -lssl -lpthread
+EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS =  -ldb_cxx -ldb -lanl -lsecp256k1 -lleveldb -lbitcoinconsensus -lmemenv -lboost_program_options -lboost_filesystem -lbitcoin_crypto -lbitcoin_common -lbitcoin_multichain -lbitcoin_cli -lbitcoin_util -lbitcoin_wallet -lbitcoin_server -lssl -lcrypto -lboost_thread -lbitcoin_univalue -lboost_system -lpthread -lmultichain
+LIBS = -L$(MULTICHAIN_PROJ)/src/multichain -L$(MULTICHAIN_PROJ)/out/$(CONFIGNAME)  -ldb_cxx -ldb -lanl -lsecp256k1 -lleveldb -lbitcoinconsensus -lmemenv -lboost_program_options -lboost_filesystem -lbitcoin_crypto -lbitcoin_common -lbitcoin_multichain -lbitcoin_cli -lbitcoin_util -lbitcoin_wallet -lbitcoin_server -lssl -lcrypto -lboost_thread -lbitcoin_univalue -lboost_system -lpthread -lmultichaindepd -lmultichain -lmultichain
+LIBS += -Wl,-rpath,`abspath $(MULTICHAIN_PROJ)/src/multichain` -Wl,-rpath,`abspath $(MULTICHAIN_PROJ)/out/$(CONFIGNAME)`
 
 # Output directory
 PROJECT_OUTPUT_DIR = ../out
@@ -32,6 +33,9 @@ OBJS = $O/Txc.o
 
 # Message files
 MSGFILES =
+
+# Other makefile variables (-K)
+MULTICHAIN_PROJ=/home/ran/git/multichain
 
 #------------------------------------------------------------------------------
 
@@ -103,7 +107,7 @@ msgheaders: $(MSGFILES:.msg=_m.h)
 clean:
 	$(qecho) Cleaning...
 	$(Q)-rm -rf $O
-	$(Q)-rm -f test1 test1.exe libtest1.so libtest1.a libtest1.dll libtest1.dylib
+	$(Q)-rm -f multichain-omnetpp multichain-omnetpp.exe libmultichain-omnetpp.so libmultichain-omnetpp.a libmultichain-omnetpp.dll libmultichain-omnetpp.dylib
 	$(Q)-rm -f ./*_m.cc ./*_m.h
 
 cleanall: clean

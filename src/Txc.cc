@@ -15,6 +15,8 @@
 
 #include "Txc.h"
 #include "/home/ran/git/multichain/src/multichain/multichainlib.h"
+#include <string>
+
 
 //#include "multichainlib.h"
 //#include "util.h"
@@ -27,10 +29,12 @@ void Txc::initialize()
     if (par("sendInitialMessage").boolValue())
     {
         multichainlib s1 ;
-        s1.connect1();
-      //int x= s1.connect1();
-       std::cout << "Test..." ;
-     //  std::cout<<  std::to_string(x);
+        char* chainname;
+        chainname ="chain5";
+       // s1.connect1();
+      int x= s1.connect(chainname);
+       std::cout << "Test1..." ;
+       std::cout<<  std::to_string(x);
         //Student s("Joe");
         cMessage *msg = new cMessage("tictocMsg");
         //test1
