@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for multichain-omnetpp
 #
 # This file was generated with the command:
-#  opp_makemake -f -L/home/ran/git/multichain/src/multichain -L/home/ran/git/multichain/out/$$\(CONFIGNAME\) -ldb_cxx -ldb -lanl -lsecp256k1 -lleveldb -lbitcoinconsensus -lmemenv -lboost_program_options -lboost_filesystem -lbitcoin_crypto -lbitcoin_common -lbitcoin_multichain -lbitcoin_cli -lbitcoin_util -lbitcoin_wallet -lbitcoin_server -lssl -lcrypto -lboost_thread -lbitcoin_univalue -lboost_system -lpthread -lmultichaindepd -lmultichain -lmultichain -KMULTICHAIN_PROJ=/home/ran/git/multichain
+#  opp_makemake -f -L/home/ran/git/multichain/src/multichain -L/home/ran/git/multichain/out/$$\(CONFIGNAME\) -ldb_cxx -ldb -lanl -lsecp256k1 -lleveldb -lbitcoinconsensus -lmemenv -lboost_program_options -lboost_filesystem -lbitcoin_crypto -lbitcoin_common -lbitcoin_multichain -lbitcoin_cli -lbitcoin_util -lbitcoin_wallet -lbitcoin_server -lssl -lcrypto -lboost_thread -lbitcoin_univalue -lboost_system -lpthread -lmultichaindepd -lmultichainutil -lmultichaind -lmultichain -KMULTICHAIN_PROJ=/home/ran/git/multichain
 #
 
 # Name of target to be created (-o option)
@@ -20,7 +20,7 @@ INCLUDE_PATH = -I.
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS = -L$(MULTICHAIN_PROJ)/src/multichain -L$(MULTICHAIN_PROJ)/out/$(CONFIGNAME)  -ldb_cxx -ldb -lanl -lsecp256k1 -lleveldb -lbitcoinconsensus -lmemenv -lboost_program_options -lboost_filesystem -lbitcoin_crypto -lbitcoin_common -lbitcoin_multichain -lbitcoin_cli -lbitcoin_util -lbitcoin_wallet -lbitcoin_server -lssl -lcrypto -lboost_thread -lbitcoin_univalue -lboost_system -lpthread -lmultichaindepd -lmultichain -lmultichain
+LIBS = -L$(MULTICHAIN_PROJ)/src/multichain -L$(MULTICHAIN_PROJ)/out/$(CONFIGNAME)  -ldb_cxx -ldb -lanl -lsecp256k1 -lleveldb -lbitcoinconsensus -lmemenv -lboost_program_options -lboost_filesystem -lbitcoin_crypto -lbitcoin_common -lbitcoin_multichain -lbitcoin_cli -lbitcoin_util -lbitcoin_wallet -lbitcoin_server -lssl -lcrypto -lboost_thread -lbitcoin_univalue -lboost_system -lpthread -lmultichaindepd -lmultichainutil -lmultichaind -lmultichain
 LIBS += -Wl,-rpath,`abspath $(MULTICHAIN_PROJ)/src/multichain` -Wl,-rpath,`abspath $(MULTICHAIN_PROJ)/out/$(CONFIGNAME)`
 
 # Output directory
