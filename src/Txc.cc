@@ -31,13 +31,26 @@ void Txc::initialize()
     {
 
         char* chainname;
-        chainname ="chain59";
+        char* datadir;
+        char* port;
+        char* rpcport;
+        char* daemon;
+        daemon="";
+        datadir="-datadir=~/.multichain1";
+        port= " -port=10255 ";
+       rpcport="";
+       chainname ="chain41@192.168.197.128:2901";
+     //  chainname ="chain41";
+
         //1. create a chain
-       // multichainutillib s1 ;
-        // int x= s1.create(chainname);
+        multichainutillib s2 ;
+      //   int x= s2.create(chainname);
         //2. generate blockchain
         multichaindlib s1 ;
-        int x= s1.generateBlockchain(chainname);
+      //  int x= s1.generateBlockchain(chainname);
+
+        // 3. connect to multichain in another node
+        int x= s1.generateBlockchain(chainname, datadir, port, rpcport, daemon);
        std::cout << "Test1..." ;
        std::cout<<  std::to_string(x);
         //Student s("Joe");
