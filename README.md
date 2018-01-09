@@ -11,3 +11,4 @@ imap <Ctrl-V><Del> <Ctrl-V><Esc>lxi
 Solution: use different directory for the .d files in the makefile 
   
 3. check MC_FOM_RELATIVE_TO_DATADIR for creating multichain in the tcp   
+4. oversim doc https://sites.google.com/site/oversimdemystified/contents/01introduction
